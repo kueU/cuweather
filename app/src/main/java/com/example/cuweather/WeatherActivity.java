@@ -65,6 +65,10 @@ public class WeatherActivity extends AppCompatActivity {
 
     private String mWeatherId;
 
+    public void setmWeatherId(String mWeatherId) {
+        this.mWeatherId = mWeatherId;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,9 +103,9 @@ public class WeatherActivity extends AppCompatActivity {
 
         }else {
             //无缓存去服务器查询
-            String weatherId = getIntent().getStringExtra("weather_id");
+            mWeatherId = getIntent().getStringExtra("weather_id");
             weatherLayout.setVisibility(View.INVISIBLE);
-            requestWeather(weatherId);
+            requestWeather(mWeatherId);
         }
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
